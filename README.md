@@ -16,16 +16,17 @@ you will during the next month:
 
 * This workshop is based on previous experiences and the following key references:
 
-    -[Tidy data]() paper
+    -[Tidy data](http://vita.had.co.nz/papers/tidy-data.pdf) paper
 
     -About Data management:
-[10 basic rules](http://library.queensu.ca/ojs/index.php/IEE/article/view/4608)
-[and a few more](http://www.esajournals.org/doi/abs/10.1890/0012-9623-90.2.205)
+[10 basic rules](http://library.queensu.ca/ojs/index.php/IEE/article/view/4608) 
+[and a few more tips](http://www.esajournals.org/doi/abs/10.1890/0012-9623-90.2.205)
+for data management
 
     -About [Git](http://www.scfbm.org/content/8/1/7)
 
     -Other resources: 
-[DataOne](http://www.dataone.org/best-practices)
-[Prometheusresearch](http://www.prometheusresearch.com/good-data-management-practices-for-data-analysis-tidy-data-part-2)
-[Data is being lost](http://www.cell.com/current-biology/abstract/S0960-9822%2813%2901400-0)
-[Practicaldatamanagement blog](http://practicaldatamanagement.wordpress.com)
+[DataOne](http://www.dataone.org/best-practices);
+[Prometheusresearch](http://www.prometheusresearch.com/good-data-management-practices-for-data-analysis-tidy-data-part-2);
+[Data is being lost](http://www.cell.com/current-biology/abstract/S0960-9822%2813%2901400-0);
+[Practicaldatamanagement blog](http://practicaldatamanagement.wordpress.com).
