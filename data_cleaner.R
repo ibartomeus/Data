@@ -91,13 +91,23 @@ dat_melted$counts[which(dat_melted$counts > 500)] <- NA
 boxplot(dat_melted$counts) #lets keep it as an outlyer
 str(dat_melted) #why counts not integer?
 as.integer(dat_melted$counts) #may be we are scriwing up something?
-#know how many have . (or end in 0)
-#I did
+#My first approach... now how many have end in .0
+#I tried regexp
 #grep("[0]$", dat_melted$counts, value = TRUE) #fails becasue R internally 
     #does as.character(dat_melted$counts) and removes zeros... more on regexp below
-#I convert it to character because I painfully discover this R inferno...
-temp <- as.character(dat_melted$counts)
-grep("[.]", temp, value = TRUE)
+#I can convert it to character first unelegantly...
+#temp <- as.character(dat_melted$counts)
+#grep("[.]", temp, value = TRUE)
+
+#better option after talking with R expert
+#make a relatively complex function
+#probable.integer <- function(x) abs(x - round(x)) < sqrt(.Machine$double.eps)
+# .Machine tells you the smallest positive floating-point my R can handle.
+#probable.integer(dat_melted$counts)
+#dat_melted$counts[probable.integer(dat_melted$counts) == FALSE] 
+#even better ater talking with The expert!
+dat_melted$counts[round(dat_melted$counts) != dat_melted$counts] 
+
 # I assume is 88
 dat_melted$counts[which(dat_melted$counts == 8.8)] <- 88
 
