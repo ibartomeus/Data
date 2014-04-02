@@ -127,6 +127,19 @@ m <- regexpr(pattern="[a-z]*[0-9]+$", dat_melted$Genus_sp, perl= TRUE)
 dat_melted$species <- regmatches(dat_melted$Genus_sp, m)
 str(dat_melted)
 
+#database stile ----
+#avoid redundant information by structuring data into tables
+
+#Table of sites; 
+unique(dat$Site)
+sites <- data.frame(Site = c("A","B","C"), Land_use = c("agricultural", "forest", "mix"))
+
+#now I can merge both when needed
+dat_melted2 <- merge(dat_melted, sites, by = "Site", all = TRUE)
+str(dat_melted)
+str(dat_melted2)
+head(dat_melted2)
+
 #export it
 write.csv(dat_melted, "example/clean_data.csv")
 
