@@ -281,38 +281,54 @@ Resources:
 [Tidy data paper](http://vita.had.co.nz/papers/tidy-data.pdf)
 
 Must read about Data:
-[http://library.queensu.ca/ojs/index.php/IEE/article/view/4608](http://library.queensu.ca/ojs/index.php/IEE/article/view/4608)
-[http://www.esajournals.org/doi/abs/10.1890/0012-9623-90.2.205](http://www.esajournals.org/doi/abs/10.1890/0012-9623-90.2.205)
+[Nine simple ways to make it easier to (re)use your data](http://library.queensu.ca/ojs/index.php/IEE/article/view/4608)
+
+[Some Simple Guidelines for Effective Data Management](http://www.esajournals.org/doi/abs/10.1890/0012-9623-90.2.205)
 
 More:
-[http://www.sciencedirect.com/science/article/pii/S0006320713002747](http://www.sciencedirect.com/science/article/pii/S0006320713002747)
-[http://www.sciencedirect.com/science/article/pii/S000632071300373X](http://www.sciencedirect.com/science/article/pii/S000632071300373X)
-[http://www.cbs.nl/NR/rdonlyres/951A0593-3D4A-4C33-86B3-A0AA18E2E976/0/201313x10pub.pdf](http://www.cbs.nl/NR/rdonlyres/951A0593-3D4A-4C33-86B3-A0AA18E2E976/0/201313x10pub.pdf)
+[Best practice for biodiversity data management and publication](http://www.sciencedirect.com/science/article/pii/S000632071300373X)
+
+[An introduction to data cleaning with R](http://www.cbs.nl/NR/rdonlyres/951A0593-3D4A-4C33-86B3-A0AA18E2E976/0/201313x10pub.pdf)
 
 [Paper on Git and reproducibilty](http://link.springer.com/article/10.1186%2F1751-0473-8-7)
 
 Resources:
 =======================
+
+Data sharing:
+[Open data](http://www.sciencemag.org/content/331/6018/703.abstract)
+
+[practice and perceptions](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0021101)
+
+[enhanced citations and re-use](https://peerj.com/articles/175/)
+
+[more on data sharing enhance citations](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0000308)
+
+[who shares data](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0018657)
+
+Resources:
+=======================
+
 [For Excel fans](http://f1000research.com/articles/3-6/v1)
  
-Data life cycle:
-[http://www.dataone.org/best-practices](http://www.dataone.org/best-practices)
-[http://www.prometheusresearch.com/good-data-management-practices-for-data-analysis-tidy-data-part-2/](http://www.prometheusresearch.com/good-data-management-practices-for-data-analysis-tidy-data-part-2/)
+[Best practices on Data One](http://www.dataone.org/best-practices)
+
+[Data Management Practices](http://www.prometheusresearch.com/good-data-management-practices-for-data-analysis-tidy-data-part-2/)
 
 [Ref data lost](http://www.cell.com/current-biology/abstract/S0960-9822%2813%2901400-0)
 
-Blogs:
+Blogs worth checking:
 [http://practicaldatamanagement.wordpress.com/](http://practicaldatamanagement.wordpress.com/)
 
+Licence your data:
 [Licences](http://opendefinition.org/licenses/#Data)
+
+[Example on why use apropiate Licences](http://rossmounce.co.uk/2014/03/13/discussing-open-access-with-the-linnean-society/)
 
 
 Resources:
 =======================
-Other things: 
+Other presentation: [R and reproducibility](http://rpubs.com/bpbond/14911)
 
-[R and reproducibility](http://rpubs.com/bpbond/14911)
-
-dplyr: [http://www.ancienteco.com/2014/01/introduction-to-dplyr-data-manipulation.html](http://www.ancienteco.com/2014/01/introduction-to-dplyr-data-manipulation.html) and  [http://zevross.com/blog/2014/03/26/four-reasons-why-you-should-check-out-the-r-package-dplyr-3/](http://www.ancienteco.com/2014/01/introduction-to-dplyr-data-manipulation.html)
-
+about dplyr: [dplyr blog](http://www.ancienteco.com/2014/01/introduction-to-dplyr-data-manipulation.html) and  [dplyr example](http://www.ancienteco.com/2014/01/introduction-to-dplyr-data-manipulation.html)
 
