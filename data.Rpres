@@ -52,12 +52,12 @@ What do you think of before collecting data?
 - Power analysis?
 - In which format you will need it
 - How are you going to use it (explicitelly)
+- write detailed protocols (helps working incremental)
 
 What do you do to collect high quality data?
 ============================================
 
-- write detailed protocols (helps working incremental)
-- prepare entry sheets 
+- use entry sheets 
 - double labeling of samples when possible
 - standardize coding (4_NitrogenPhosphurous > 4NP > 4)
 
