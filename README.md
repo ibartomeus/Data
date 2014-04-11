@@ -10,8 +10,10 @@ Data is at the core of the scientific activity. Ecologists are managing larger a
     - NEW: script to clean it is added
 
 * Find the slides used in the workshop under data.md file
+    - Riikka and Vesna presentations added in PDF
 
-* Find code for following Zuur et al. (and more) (not uploaded yet)
+* Find code for following Zuur et al. (and more) 
+    - Data_exploration.R (and associated data inside the example folder)
 
 * This workshop is based on previous experiences and the following key references:
 
