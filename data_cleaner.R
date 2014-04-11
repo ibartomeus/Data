@@ -39,7 +39,8 @@ str(dat)
 levels(dat$Genus.species7)
 #not quite... let's assume we decide we want to use value = 7
 levels(dat$Genus.species7)[which(levels(dat$Genus.species7) == "6 (+1)")] <- 7
-levels(dat$Genus.species7)
+ifelse(levels(dat$Genus.species7) == "6 (+1)", 7, levels(dat$Genus.species7))
+    levels(dat$Genus.species7)
 #now we can convert to numeric
 dat$Genus.species7 <- as.numeric(as.character(dat$Genus.species7))
 str(dat)
@@ -70,7 +71,7 @@ range(dat$CoVariate, na.rm = TRUE) #seems correct
 #let's ignore for now the species and format the data as tidy data----
 #we use library reshape
 
-dat_melted <- melt(dat[,-17], id.vars= c("Site", "Treatment", "Date", "CoVariate"))
+dat_melted <- melt(data = dat[,-17], id.vars= c("Site", "Treatment", "Date", "CoVariate"))
 str(dat_melted) #note Date 2 is ignored in the [,-17]
 colnames(dat_melted)[c(5,6)] <- c("Genus_sp", "counts")
 head(dat_melted)
@@ -116,13 +117,18 @@ levels(dat_melted$Genus_sp)
 #I like _ better than .
 #we can use gsub again
 gsub(".", "_", dat_melted$Genus_sp) #¿? . has a special meaning!
-dat_melted$Genus_sp <- gsub(".", "_", fixed= TRUE, dat_melted$Genus_sp)
+dat_melted$Genus_sp <- gsub(".", "_", fixed = TRUE, dat_melted$Genus_sp)
 #and I want to split Genus and species
 #Lets use regexp full power
 ?regex
 unique(dat_melted$Genus_sp)
-m <- regexpr(pattern="^[A-Z][a-z]*[0-9]", dat_melted$Genus_sp, perl= TRUE) 
+m <- regexpr(pattern="^[A-Z][a-z]*([0-9])", dat_melted$Genus_sp, perl= TRUE) 
+[0-9]
 dat_melted$Genus <- regmatches(dat_melted$Genus_sp, m)
+example <- c("1+1","2+3", "0+1")
+m <- regexpr(pattern="^[0-9]+", example, perl= TRUE) 
+first_column <- regmatches(example, m)
+
 m <- regexpr(pattern="[a-z]*[0-9]+$", dat_melted$Genus_sp, perl= TRUE) 
 dat_melted$species <- regmatches(dat_melted$Genus_sp, m)
 str(dat_melted)
@@ -133,8 +139,9 @@ str(dat_melted)
 #Table of sites; 
 unique(dat$Site)
 sites <- data.frame(Site = c("A","B","C"), Land_use = c("agricultural", "forest", "mix"))
-
+head(dat_melted)
 #now I can merge both when needed
+merge_variable <- paste(dat_melted$Site, dat_melted$Treatment)
 dat_melted2 <- merge(dat_melted, sites, by = "Site", all = TRUE)
 str(dat_melted)
 str(dat_melted2)
@@ -145,9 +152,9 @@ write.csv(dat_melted, "example/clean_data.csv")
 
 #Why this format? easy to work with-----
 #e.g. go back to original format
-cast(dat_melted, Site + Treatment + Date + CoVariate ~ Genus_sp, value = "counts", fun = sum)
+cast(data = dat_melted, Site + Treatment + Date + CoVariate ~ Genus_sp, value = "counts", fun = sum)
 #or pool only by site
-cast(dat_melted, Site ~ Genus_sp, value = "counts", fun = sum, na.rm = TRUE)
+cast(dat_melted, Site + Treatment ~ Genus_sp, value = "counts", fun = sum, na.rm = TRUE)
 #or mean per sites
 cast(dat_melted, Site ~ Genus_sp, value = "counts", fun = mean, na.rm = TRUE)
 
@@ -155,11 +162,11 @@ cast(dat_melted, Site ~ Genus_sp, value = "counts", fun = mean, na.rm = TRUE)
 #mean of the covariate by treatment, but only for date one?
 dat_melted %.%
     group_by(Treatment) %.%
-    filter(Date == "2014-03-01") %.%
+    filter(Date != "2014-03-01") %.%
     summarise(mean(CoVariate, na.rm = TRUE))
     
-#make z-scores by site
-dat_melted %.%
-    group_by(Site) %.%
-    mutate(z_counts = scale(counts))
-
+#make z-scores by site and store new data
+new_data <- dat_melted %.%
+                 group_by(Site, Treatment) %.%
+                 mutate(z_counts = scale(counts))
+#arrange
