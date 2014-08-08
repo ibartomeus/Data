@@ -1,4 +1,4 @@
-#This code is adapted from Zuur et al. and bprrows heavely from several sources
+#This code is adapted from Zuur et al. and borrows heavely from several sources
 #Compiled by Vesna Gagic
 
 

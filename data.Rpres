@@ -11,6 +11,7 @@ Science = Ideas + Data
     * Ensure it is accurate
     * It is easy to use
     * It is preserved in the long term
+    * Ensure reproducibility!
 
 
 Science is changing: Data sharing culture is stablishing
@@ -178,7 +179,7 @@ Where do you manipulate your data?
 Where do you manipulate your data? 
 ===================================
 
-- Never manipulate Master data.
+- Never manipulate the Master data.
 - Use a scripting lenguage (e.g. R) to make it reproducible
     * You can't reproduce… if you don't understand where a number came from.
     * You can't reproduce… what you don't remember. And trust me: you won't.
@@ -214,7 +215,7 @@ Do you re-used data? It was easy?
 Do you re-used data? It was easy?
 ================================
 - cleaning, securing, understanding and realising data is 100 times harder a posteriori.
-- Re-use your data
+- Re-use your own data
 - Other people data
 
 How owns your data?
@@ -243,7 +244,7 @@ Do you share your data? Why?
 - Why not data?
 - The only way to reproducibility
 
->"I don't publish my _data_, someone may use them to write his own papers!"
+>"I don't publish my _data_, someone may use them to write his/her own papers!"
 
 >"I can share with you my _data_, but only if I become a coauthor in any of your papers using it"
 
@@ -332,3 +333,8 @@ Other presentation: [R and reproducibility](http://rpubs.com/bpbond/14911)
 
 about dplyr: [dplyr blog](http://www.ancienteco.com/2014/01/introduction-to-dplyr-data-manipulation.html) and  [dplyr example](http://www.ancienteco.com/2014/01/introduction-to-dplyr-data-manipulation.html)
 
+More from [Hadley Wickham](https://github.com/hadley and https://github.com/hadley/tidyr)
+
+About [Regular expresions](http://www.r-bloggers.com/regular-expressions-in-r-vs-rstudio/?utm_source=twitterfeed&utm_medium=twitter&utm_campaign=Feed%3A+RBloggers+%28R+bloggers%29)
+
+More about [Excel](https://docs.google.com/document/d/12S34XlShpDvAargH76yhgzvWZm4EHGzDRX95tpK6To0/edit#heading=h.ve7byhxezdxv)
