@@ -11,9 +11,10 @@ library(dplyr)
 #load data----
 dat <- read.csv("example/dirty_data.csv")
 str(dat)
+head(dat)
 
 #First we notice wierd columns...Get rid of columns with no data... The X's columns----
-dat <- dat[,1:16]
+dat <- dat[,c(1:16)]
 str(dat)
 
 #Second thing we notice is Date is a factor----
@@ -64,13 +65,15 @@ levels(dat$Site)  <- c("A", "B", "B", "C", "B")
 levels(dat$Treatment) #blank spaces are killing us.
 #we can fix that one as before, but when you have 200 levels you need to automatize it.
 #we will use regular expresions.
+sort(levels(dat$Treatment))
+?grep
 levels(dat$Treatment) <- gsub(pattern= " ", "", levels(dat$Treatment))
 
 range(dat$CoVariate, na.rm = TRUE) #seems correct
                              
 #let's ignore for now the species and format the data as tidy data----
 #we use library reshape
-
+head(dat)
 dat_melted <- melt(data = dat[,-17], id.vars= c("Site", "Treatment", "Date", "CoVariate"))
 str(dat_melted) #note Date 2 is ignored in the [,-17]
 colnames(dat_melted)[c(5,6)] <- c("Genus_sp", "counts")
@@ -85,6 +88,7 @@ dat_melted$counts[which(dat_melted$counts < 0)]
 dat_melted$counts[which(dat_melted$counts < 0)] <- 3
 #improbable numbers:
 fivenum(dat_melted$counts)
+summary(dat_melted$counts)
 dat_melted$counts[which(dat_melted$counts > 100)]
 dat_melted[which(dat_melted$counts > 100),]
 boxplot(dat_melted$counts)
@@ -123,7 +127,6 @@ dat_melted$Genus_sp <- gsub(".", "_", fixed = TRUE, dat_melted$Genus_sp)
 ?regex
 unique(dat_melted$Genus_sp)
 m <- regexpr(pattern="^[A-Z][a-z]*([0-9])", dat_melted$Genus_sp, perl= TRUE) 
-[0-9]
 dat_melted$Genus <- regmatches(dat_melted$Genus_sp, m)
 example <- c("1+1","2+3", "0+1")
 m <- regexpr(pattern="^[0-9]+", example, perl= TRUE) 
@@ -160,12 +163,13 @@ cast(dat_melted, Site ~ Genus_sp, value = "counts", fun = mean, na.rm = TRUE)
 
 #summarize it (library dplyr)-----
 #mean of the covariate by treatment, but only for date one?
+str(dat_melted)
 dat_melted %.%
     group_by(Treatment) %.%
-    filter(Date != "2014-03-01") %.%
+    filter(Date == "2014-03-01") %.%
     summarise(mean(CoVariate, na.rm = TRUE))
     
-#make z-scores by site and store new data
+    #make z-scores by site and store new data
 new_data <- dat_melted %.%
                  group_by(Site, Treatment) %.%
                  mutate(z_counts = scale(counts))
